@@ -51,6 +51,7 @@ All features tracked in `features/INDEX.md`. Every skill reads it at start and u
 - **shadcn/ui first:** NEVER create custom versions of installed shadcn components
 - **Human-in-the-loop:** All workflows have user approval checkpoints
 - **Tests:** Unit tests co-located next to source files (`useHook.test.ts` next to `useHook.ts`). E2E tests in `tests/`.
+- **Next.js version questions:** Read the bundled docs in `node_modules/next/dist/docs/` first, because APIs change between versions (e.g. `middleware.ts` is `proxy.ts` since Next.js 16).
 
 ## Build & Test Commands
 
