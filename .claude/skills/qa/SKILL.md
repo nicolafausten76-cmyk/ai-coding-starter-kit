@@ -25,6 +25,13 @@ If browsers are not installed, tell the user:
 > Then run: `npx playwright install chromium`
 > This is a one-time setup per machine. After cloning the repo, always run this once before E2E tests.
 
+If the download hangs while unpacking (seen on Windows, possibly caused by a virus scanner), use a locally installed browser instead. Set `channel` in the projects of `playwright.config.ts`, and replace WebKit projects such as `devices['iPhone 13']` with `devices['Pixel 7']`:
+```ts
+{ name: 'chromium', use: { ...devices['Desktop Chrome'], channel: 'chrome' } },   // or 'msedge'
+{ name: 'Mobile Chrome', use: { ...devices['Pixel 7'], channel: 'chrome' } },
+```
+A hung install can leave a `__dirlock` lock file in the `ms-playwright` folder. Remove it only after the install process has ended. Use this as a fallback for the affected machine, not as the template default.
+
 ## Workflow
 
 ### 1. Read Feature Spec
